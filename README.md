@@ -1,90 +1,98 @@
-# 📦 Final Assignment: Build, Organize, and Deploy a Multipage Website
 
-You're now ready to bring everything together—HTML, CSS, JavaScript, planning, structure, and deployment. This final project challenges you to **conceptualize, build, and deploy a multi-page website** that is responsive, interactive, and ready for the real world.
+# Lumen Archive 🌅⏳
 
-This assignment will guide you from planning your site all the way to deploying it online. Let’s make your project *production-worthy*! 🚀
+A curated digital archive for the Institute of Light & Time
+
+![Lumen Archive Screenshot](https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200)
+
+Live Website: [https://aquamarine-starburst-baad3e.netlify.app/](https://aquamarine-starburst-baad3e.netlify.app/)
+
+## 🎯 Project Purpose
+
+The Lumen Archive is a sophisticated, multi-page website serving as the digital home for a fictional "Institute of Light & Time." Its core mission is to showcase a curated collection of photography that explores the profound and beautiful interplay of illumination and moment. The project demonstrates advanced front-end development skills, including semantic HTML5, modern CSS3, vanilla JavaScript, responsive design, and seamless deployment.
+
+Built as a final project for the PLP Web Technologies course, it is designed to stand out in competition through its unique thematic concept, flawless user experience, and clean, maintainable codebase.
+
+## 🏗️ Project Structure
+
+The project is organized into a clear and scalable structure:
+
+```
+project-folder/
+├── index.html              # Homepage with hero section
+├── archive.html            # Main interactive gallery with filtering
+├── collections.html        # Thematic collection showcases
+├── essays.html             # Long-form articles and studies
+├── about.html              # "The Institute" - mission and team
+├── contact.html            # Functional contact form
+├── css/
+│   └── style.css           # Main stylesheet with CSS variables
+├── js/
+│   ├── script.js           # Main JS (mobile menu, init functions)
+│   ├── gallery-filter.js   # Logic for filtering the archive
+│   └── form-validation.js  # Client-side contact form validation
+├── images/                 # Directory for image assets
+└── README.md               # This file
+```
+
+## ✨ Key Features
+
+- Thematic Design: A cohesive, dark-mode-first aesthetic that evokes a sense of a premium digital archive.
+- Fully Responsive: Flawless experience on mobile, tablet, and desktop devices.
+- Interactive Gallery: A filterable image gallery in `archive.html` allowing users to view images by collection.
+- Functional Contact Form: A Netlify-integrated form in `contact.html` with client-side validation.
+- Dynamic Navigation: An accessible mobile-friendly navigation menu with a toggle button.
+- Semantic HTML: Proper use of HTML5 semantic tags and ARIA attributes for better accessibility and SEO.
+- Modern CSS: Utilizes CSS Grid, Flexbox, Variables (Custom Properties), and smooth transitions.
+
+## 🚀 Deployment
+
+This project is deployed on **Netlify** for continuous deployment.
+- Live URL: [https://aquamarine-starburst-baad3e.netlify.app/](https://aquamarine-starburst-baad3e.netlify.app/)
+- Deployment Method:** Connected to the GitHub repository. Every push to the `main` branch triggers an automatic rebuild and deployment on Netlify.
+- Form Handling: The contact form is powered by Netlify's built-in form processing system.
+
+## 🛠️ Technologies Used
+
+- **HTML5** (Semantic Structure)
+- **CSS3** (Custom Properties, Grid, Flexbox, Transitions)
+- **JavaScript (Vanilla ES6+)** (DOM Manipulation, Event Handling)
+- **Netlify** (Hosting, Continuous Deployment, Form Handling)
+- **Unsplash** (Source for high-quality, free-to-use placeholder imagery)
+
+## 📄 Pages Overview
+
+1.  **Home (`index.html`):** Features a full-screen hero image, introduction, and call-to-action.
+2.  **The Archive (`archive.html`):** The main gallery with interactive filter buttons and hover effects.
+3.  **Collections (`collections.html`):** Displays thematic groups of images as clickable cards.
+4.  **Essays (`essays.html`):** Showcases long-form articles with author bylines and previews.
+5.  **The Institute (`about.html`):** Details the fictional institute's mission, history, and team.
+6.  **Contact (`contact.html`):** Includes a validated contact form and alternative contact information.
+
+## 🔮 Future Enhancements
+
+Potential features to extend the project:
+-   Implement a dark/light mode toggle.
+-   Add a full-screen lightbox for the gallery images.
+-   Integrate a static site generator (like Eleventy) for the blog/essays section.
+-   Add pagination or lazy loading for the gallery if the collection grows very large.
+
+## 👨‍💻 Developer
+
+- **Martin Mutugi**
+- Project developed for the **PLP Web Technologies** July 2025 Cohort.
 
 ---
+*This project uses imagery from Unsplash. All photographs are used under the Unsplash License.*
+```
 
-## 🌐🎯 Part 1: Planning and Organizing a Multipage Website
+### **Why this README is effective:**
 
-Before you write any code, take time to plan:
-
-* Define your website's purpose (portfolio, product showcase, blog, etc.)
-* Outline 3–5 pages (e.g., Home, About, Services, Contact, Gallery)
-* Sketch or describe the layout of each page
-* Map out internal navigation (how pages link to one another)
-
-**Goal:** Show intentional structure and user journey across the site.
-
----
-
-## 🌍💻 Part 2: Build the Website Using HTML5, CSS, and JavaScript
-
-Using your plan, begin building:
-
-* Use HTML5 for semantic structure
-* Apply CSS for responsive layout, styling, and animations
-* Use JavaScript to add interactivity (menus, forms, toggles, dynamic content)
-
-Each page should:
-
-* Be mobile-responsive
-* Share a consistent layout/header/footer
-* Include at least one interactive element (e.g., form validation, toggle menu, animation on scroll)
-
-**Goal:** Integrate everything you’ve learned in a cohesive, functioning project.
-
----
-
-## 🛠️🚀 Part 3: Best Practices for Code Organization
-
-Before deployment, refactor your project to follow production-friendly practices:
-
-* Organize files in folders (`/css`, `/js`, `/images`, etc.)
-* Write clean, modular, and commented code
-* Use meaningful file names and relative paths
-* Validate your HTML/CSS and test on different screen sizes
-
-**Goal:** Prepare your codebase to be readable, maintainable, and scalable.
-
----
-
-## 🌐🚀 Part 4: Introduction to Hosting and Deployment
-
-Once your project is complete, choose a method to **host your site online**.
-
-You can use:
-
-* **GitHub Pages** (great for portfolios and static sites)
-* **Netlify** (powerful CI/CD features and easy form support)
-* **Vercel** (lightning-fast deployment for frontend projects)
-
-Deploy your project and confirm that:
-
-* All links and scripts work
-* It loads properly on mobile and desktop
-* It has a clear, shareable URL
-
-**Goal:** Publish your work online and make it accessible to the world.
-
----
-
-## Deliverables
-
-1. A GitHub repository containing:
-
-   * Your complete project code, properly organized
-   * A `README.md` file explaining your project purpose, structure, and live URL
-2. A live deployed website (hosted via GitHub Pages, Netlify, or Vercel)
-
----
-
-## Outcome
-
-* Clarity and thoroughness of planning documentation
-* Proper use of HTML5, CSS, and JavaScript across multiple pages
-* Responsive and accessible design
-* Clean, well-organized, and commented code
-* Successful live deployment with a working link
-* Evidence of following best practices
+1.  **Professional Presentation:** It starts with a name, tagline, visual, and live link.
+2.  **Clear Purpose:** Immediately explains what the project is and its goals.
+3.  **Detailed Structure:** Shows you have organized your code thoughtfully.
+4.  **Features List:** Highlights your technical and design achievements.
+5.  **Deployment Info:** Clearly explains how and where the project is hosted.
+6.  **Technology Stack:** Shows awareness of the tools used.
+7.  **Page Overview:** Provides a quick guide to the site's content.
+8.  **Future Ideas:** Demonstrates forward-thinking and passion for the project.
