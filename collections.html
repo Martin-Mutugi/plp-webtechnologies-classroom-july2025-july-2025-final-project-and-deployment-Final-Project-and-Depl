@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curated Collections | Lumen Archive</title>
+  <meta name="description" content="Explore thematic collections of photographs curated by the Institute of Light & Time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <h1><a href="index.html" style="color: inherit; text-decoration: none;">Lumen Archive</a></h1>
+      <nav id="main-nav">
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="archive.html">The Archive</a></li>
+          <li><a href="collections.html" aria-current="page">Collections</a></li>
+          <li><a href="essays.html">Essays</a></li>
+          <li><a href="about.html">The Institute</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-intro" aria-labelledby="collections-heading">
+      <h2 id="collections-heading">Curated Collections</h2>
+      <p>Our archivists group images into thematic collections to provide deeper context and narrative. Each collection represents a unique exploration of our core theme—the interplay of light and time.</p>
+    </section>
+
+    <div class="collections-grid">
+      <!-- Collection 1 -->
+      <article class="collection-card">
+        <a href="collections/mediterranean.html" class="collection-link">
+          <img src="images/collections/mediterranean-thumb.jpg" alt="A preview of the Mediterranean Luminescence collection." class="collection-img" />
+          <div class="collection-content">
+            <h3>Mediterranean Luminescence</h3>
+            <p>A journey through ports and coastlines where the setting sun transforms sea and stone into a palette of fire and gold.</p>
+            <span class="collection-meta">12 Images</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Collection 2 -->
+      <article class="collection-card">
+        <a href="collections/neon.html" class="collection-link">
+          <img src="images/collections/neon-thumb.jpg" alt="A preview of the Neon Decay collection." class="collection-img" />
+          <div class="collection-content">
+            <h3>Neon Decay</h3>
+            <p>An examination of fading neon signs in urban landscapes, exploring beauty in entropy and the passage of time.</p>
+            <span class="collection-meta">8 Images</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Collection 3 -->
+      <article class="collection-card">
+        <a href="collections/architecture.html" class="collection-link">
+          <img src="images/collections/architecture-thumb.jpg" alt="A preview of the Abstract Architecture collection." class="collection-img" />
+          <div class="collection-content">
+            <h3>Abstract Architecture</h3>
+            <p>Focusing on the stark lines and dramatic shadows of modernist structures, turning buildings into light-based sculptures.</p>
+            <span class="collection-meta">10 Images</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Add more collection cards as needed -->
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Institute of Light & Time. All works are curated with respect to their artists.</p>
+      <nav aria-label="Social media links">
+        <p>Follow our discoveries on
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>,
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>,
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </p>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

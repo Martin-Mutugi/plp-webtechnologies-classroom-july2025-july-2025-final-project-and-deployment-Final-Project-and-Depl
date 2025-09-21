@@ -1,0 +1,603 @@
+/* ==================== ROOT VARIABLES ==================== */
+/* This defines our theme. Changing these values changes the entire site's look. */
+:root {
+  /* Core Colors - Dark theme (default) */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-accent: #4a4a4a;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #a78bfa; /* A sophisticated purple accent */
+  --color-accent-hover: #9381d0;
+  --color-border: #404040;
+
+  /* Typography */
+  --font-family-primary: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+  --line-height: 1.6;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Border & Shadows */
+  --border-radius: 8px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-base: all 0.3s ease-in-out;
+}
+
+/* Optional Light Theme - We can add a toggle later */
+[data-theme="light"] {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-accent: #e5e5e5;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-border: #d0d0d0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== BASE & RESET ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  padding: 0; /* We'll control padding with our components */
+}
+
+/* Improved accessibility for focus states */
+a:focus,
+button:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ==================== LAYOUT COMPONENTS ==================== */
+/* Container for centering content */
+.container {
+  width: 100%;
+  max-width: 1200px; /* Larger max-width for a more modern feel */
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Header */
+header {
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures header stays above other content */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Navigation */
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+}
+
+nav a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--color-bg-accent);
+  text-decoration: none; /* We use background color instead of underline */
+}
+
+/* Main Content Area */
+main {
+  min-height: 70vh; /* Ensures footer is pushed down even with little content */
+  padding: var(--spacing-xl) 0;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-xl);
+}
+
+/* ==================== GALLERY COMPONENT ==================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Larger minmax for bigger images */
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+  aspect-ratio: 4 / 3; /* Ensures all images have the same proportion */
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px); /* More modern hover effect than scale */
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crucial for keeping images framed correctly */
+  display: block;
+  transition: var(--transition-base);
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* We will add captions later with JS or HTML */
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: var(--spacing-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--transition-base);
+}
+
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 2rem; /* Reduce large spacing on mobile */
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    display: none; /* Hidden by default on mobile */
+    width: 100%;
+  }
+
+  #main-nav.visible ul {
+    display: flex; /* JS will toggle this class */
+  }
+
+  /* Mobile Menu Toggle Button */
+  #menu-toggle {
+    display: block; /* Make sure it's visible */
+    background: var(--color-bg-accent);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: var(--spacing-sm);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller tiles on mobile */
+  }
+}
+/* ==================== FILTER CONTROLS ==================== */
+.filter-controls {
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: var(--spacing-md);
+}
+
+.filter-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: var(--color-bg-accent);
+}
+
+.filter-btn.active {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+}
+
+/* ==================== PAGE INTRO ==================== */
+.page-intro {
+  text-align: center;
+  margin: var(--spacing-xl) auto;
+  max-width: 800px;
+}
+
+.page-intro h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent);
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+/* ==================== HERO SECTION ==================== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('../images/hero-background.jpg') center/cover no-repeat;
+  /* REPLACE 'hero-background.jpg' with your actual hero image filename */
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  min-height: 80vh; /* Makes the hero section take most of the viewport */
+  display: flex;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================== BUTTON COMPONENTS ==================== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: var(--transition-base);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ==================== FEATURED SECTION ==================== */
+.featured {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin: var(--spacing-xl) auto;
+}
+
+.featured h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent);
+}
+/* ==================== PAGE HERO ==================== */
+.page-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('../images/about-hero.jpg') center/cover no-repeat;
+  /* REPLACE 'about-hero.jpg' with a relevant image, e.g., an old camera, a light leak, a library */
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+.page-hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ==================== PAGE SECTIONS ==================== */
+.page-section {
+  margin: var(--spacing-xl) 0;
+}
+
+.page-section h3 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+}
+
+/* ==================== TEAM SECTION ==================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.team-member {
+  text-align: center;
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--spacing-md);
+  border: 4px solid var(--color-bg-accent);
+}
+
+.team-role {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+/* ==================== CONTACT LAYOUT ==================== */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+@media (min-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr 2fr; /* Info on the left, form on the right */
+    align-items: start;
+  }
+}
+
+.contact-info {
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.contact-info h3 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-info address p {
+  margin-bottom: var(--spacing-md);
+}
+
+.response-time {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  font-style: italic;
+}
+
+/* ==================== FORM STYLES ==================== */
+.contact-form {
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.2);
+}
+
+.hidden {
+  display: none; /* For the honeypot field */
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+  min-height: 1.2rem; /* Prevents layout shift when error appears */
+}
+/* ==================== COLLECTIONS GRID ==================== */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.collection-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.collection-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.collection-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.collection-content {
+  padding: var(--spacing-md);
+}
+
+.collection-content h3 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.collection-meta {
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+/* ==================== ESSAYS LIST ==================== */
+.essays-list {
+  margin: var(--spacing-xl) 0;
+}
+
+.essay-preview {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.essay-preview:last-child {
+  border-bottom: none;
+}
+
+.essay-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.essay-content h3 a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.essay-content h3 a:hover {
+  color: var(--color-accent);
+}
+
+.essay-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .essay-preview {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .essay-img {
+    height: 200px;
+  }
+}

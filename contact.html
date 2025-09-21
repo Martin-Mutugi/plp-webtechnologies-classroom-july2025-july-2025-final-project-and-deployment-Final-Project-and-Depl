@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact The Institute | Lumen Archive</title>
+  <meta name="description" content="Get in touch with the Institute of Light & Time for inquiries, submissions, or collaboration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <h1><a href="index.html" style="color: inherit; text-decoration: none;">Lumen Archive</a></h1>
+      <nav id="main-nav">
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="archive.html">The Archive</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="essays.html">Essays</a></li>
+          <li><a href="about.html">The Institute</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-intro" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Connect With The Institute</h2>
+      <p>We are always interested in hearing from fellow enthusiasts, researchers, and artists. Whether you have a question, a potential submission for the archive, or wish to support our work, please reach out.</p>
+    </section>
+
+    <div class="contact-container">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h3>Other Ways to Reach Us</h3>
+        <address>
+          <p><strong>Email</strong><br>
+          <a href="mailto:inquiries@lumenarchive.org">inquiries@lumenarchive.org</a></p>
+
+          <p><strong>Postal Address</strong><br>
+          The Institute of Light & Time<br>
+          123 Luminescence Avenue<br>
+          Archive City, AC 10101</p>
+        </address>
+
+        <div class="response-time">
+          <p><strong>Response Time</strong><br>
+          We strive to respond to all inquiries within 3-5 business days.</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+          <p class="hidden">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Ansel Adams" required aria-required="true" />
+            <div class="error-message" id="name-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="e.g., your@email.com" required aria-required="true" />
+            <div class="error-message" id="email-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="department">Department / Subject</label>
+            <select id="department" name="department">
+              <option value="" selected>Please select a subject...</option>
+              <option value="general-inquiry">General Inquiry</option>
+              <option value="image-submission">Image Submission</option>
+              <option value="research-collab">Research Collaboration</option>
+              <option value="support">Support the Institute</option>
+              <option value="press">Press & Media</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="6" placeholder="Please describe your inquiry in detail..." required aria-required="true"></textarea>
+            <div class="error-message" id="message-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Institute of Light & Time. All works are curated with respect to their artists.</p>
+      <nav aria-label="Social media links">
+        <p>Follow our discoveries on
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>,
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>,
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </p>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <!-- We will add a new script for form validation -->
+  <script src="js/form-validation.js"></script>
+</body>
+</html>

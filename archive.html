@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Archive | Lumen Archive</title>
+  <meta name="description" content="Browse the full collection of curated photographs from the Institute of Light & Time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <!-- Updated title to fit the "Archive" page -->
+      <h1><a href="index.html" style="color: inherit; text-decoration: none;">Lumen Archive</a></h1>
+      <nav id="main-nav">
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+        <ul>
+          <!-- Updated Navigation: Highlight the current page -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="archive.html" aria-current="page">The Archive</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="essays.html">Essays</a></li>
+          <li><a href="about.html">The Institute</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Page Intro -->
+    <section class="page-intro" aria-labelledby="archive-heading">
+      <h2 id="archive-heading">The Complete Archive</h2>
+      <p>Every image in our collection is a testament to a unique moment where light and time converged to create something timeless. Filter and explore.</p>
+    </section>
+
+    <!-- Filter Controls -->
+    <section class="filter-controls" aria-label="Filter gallery items">
+      <h3>Filter by Collection:</h3>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">View All</button>
+        <button class="filter-btn" data-filter="mediterranean">Mediterranean Luminescence</button>
+        <button class="filter-btn" data-filter="neon">Neon Decay</button>
+        <button class="filter-btn" data-filter="architecture">Abstract Architecture</button>
+      </div>
+    </section>
+
+    <!-- The Gallery Grid -->
+    <section aria-label="Image gallery">
+      <div class="gallery">
+        <!-- Gallery Item 1 -->
+        <figure class="gallery-item" data-category="mediterranean">
+          <img src="images/gallery/mediterranean-1.jpg" alt="The port of a small Greek village at sunset, with fishing boats silhouetted against a vibrant orange and purple sky." class="gallery-img">
+          <figcaption class="gallery-caption">
+            <h4>Oia, Sunset</h4>
+            <p>Santorini, Greece (2023)</p>
+          </figcaption>
+        </figure>
+        <!-- Gallery Item 2 -->
+        <figure class="gallery-item" data-category="neon">
+          <img src="images/gallery/neon-1.jpg" alt="A faded neon sign of a motel flickering on a rainy night, reflecting on the wet asphalt." class="gallery-img">
+          <figcaption class="gallery-caption">
+            <h4>Midnight Motel</h4>
+            <p>Route 66, USA (2022)</p>
+          </figcaption>
+        </figure>
+        <!-- Gallery Item 3 -->
+        <figure class="gallery-item" data-category="architecture">
+          <img src="images/gallery/arch-1.jpg" alt="The stark geometric patterns of a modernist concrete building, with strong shadows cast by the midday sun." class="gallery-img">
+          <figcaption class="gallery-caption">
+            <h4>Concrete Rhythm</h4>
+            <p>Berlin, Germany (2024)</p>
+          </figcaption>
+        </figure>
+        <!-- Gallery Item 4 -->
+        <figure class="gallery-item" data-category="mediterranean">
+          <img src="images/gallery/mediterranean-2.jpg" alt="Close-up of sun-bleached fishing nets and vibrant blue water in a harbor in southern Italy." class="gallery-img">
+          <figcaption class="gallery-caption">
+            <h4>Azure Nets</h4>
+            <p>Positano, Italy (2023)</p>
+          </figcaption>
+        </figure>
+        <!-- Add more gallery items here, ensuring each has a data-category and figcaption -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 The Institute of Light & Time. All works are curated with respect to their artists.</p>
+      <nav aria-label="Social media links">
+        <p>Follow our discoveries on
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>,
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>,
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </p>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <!-- We will add a new script for filtering functionality -->
+  <script src="js/gallery-filter.js"></script>
+</body>
+</html>
